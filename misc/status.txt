@@ -1,0 +1,5 @@
+Varun Saini
+
+Plan for using Kali:
+- I'm hoping to use Kali to learn about computer security in a hands-on way.
+- I have everything fully installed onto my machine.
