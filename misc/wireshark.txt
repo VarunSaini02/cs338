@@ -1,0 +1,76 @@
+Varun Saini
+
+===== DAYTIME =====
+
+1.
+    - 1	0.000000000	192.168.64.2	129.6.15.27	TCP	74	52282 → 13 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=2074064364 TSecr=0 WS=128
+    - 2	0.090762610	129.6.15.27	192.168.64.2	TCP	66	13 → 52282 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0 MSS=1382 WS=64 SACK_PERM
+    - 3	0.091117263	192.168.64.2	129.6.15.27	TCP	54	52282 → 13 [ACK] Seq=1 Ack=1 Win=64256 Len=0
+
+2. nc is using port 52282 (as seen above: "52282 → 13")
+
+3. The client needs a port so that the server can communicate with it (over TCP). The client communicates with port 13 on the server, but for
+    the server to communicate back, the server must know the port on which the client process is running.
+
+4.
+    - 4	0.188398702	129.6.15.27	192.168.64.2	DAYTIME	105	DAYTIME Response
+
+5.
+    Hexdump of 105 bytes:
+    0000   62 07 9d 68 ae 29 e2 b5 5f 3f 8b 64 08 00 45 00
+    0010   00 5b 00 00 00 00 36 06 f3 d1 81 06 0f 1b c0 a8
+    0020   40 02 00 0d cc 3a f6 47 d6 8d 17 b1 c2 13 50 18
+    0030   04 0d b8 2a 00 00 0a 36 30 32 30 32 20 32 33 2d
+    0040   30 39 2d 31 35 20 30 31 3a 33 37 3a 35 32 20 35
+    0050   30 20 30 20 30 20 20 20 30 2e 30 20 55 54 43 28
+    0060   4e 49 53 54 29 20 2a 20 0a
+
+    Byte(s):
+    - 0-5: the MAC address of the destination (client)
+    - 6-11: the MAC address of the source (server)
+    - 12-13: specifies IPv4
+    - 14: IP version and length of IP header (20 bytes)
+    - 14-33: IP headers
+    - 34-35: source port (TCP)
+    - 36-37: destination port (TCP)
+    - 38-53: TCP headers
+    - 54-104: ASCII encoded daytime output string
+        "\n60202 23-09-15 01:37:52 50 0 0   0.0 UTC(NIST) * \n"
+
+6. [SYN] means "synchronize" and is sent to initiate a connection between the client and server.
+
+7. [ACK] means "acknowledge" and is sent to acknowledge receipt of a packet.
+
+8. [FIN] means "finish" and is sent to terminate a connection.
+
+9. The daytime server initiated the closing of the TCP connection.
+    Frame 6 is the first frame that includes [FIN], and its source/destination IPs/ports indicate that it is sent from the server to the client:
+    - 6	0.188399630	129.6.15.27	192.168.64.2	TCP	60	13 → 52282 [FIN, ACK] Seq=52 Ack=1 Win=66368 Len=0
+
+
+===== HTTP =====
+
+1. There were two TCP connections opened.
+    There were only two frames that sent [SYN] on the TCP protocol:
+    1	0.000000000	192.168.64.2	45.79.89.123	TCP	74	41388 → 80 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=4168958297 TSecr=0 WS=128
+    2	0.000145225	192.168.64.2	45.79.89.123	TCP	74	41400 → 80 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=4168958297 TSecr=0 WS=128
+
+2. The following frame is the HTTP request for /index.html:
+    7	0.050050288	192.168.64.2	45.79.89.123	HTTP	408	GET /index.html HTTP/1.1
+
+    and the response:
+    9	0.101166105	45.79.89.123	192.168.64.2	HTTP	639	HTTP/1.1 200 OK  (text/html)
+
+3. The following frame is the HTTP request for jeff_square_head.jpg:
+    11	0.218345931	192.168.64.2	45.79.89.123	HTTP	377	GET /jeff_square_head.jpg HTTP/1.1
+
+    and the response:
+    70	0.379596028	45.79.89.123	192.168.64.2	HTTP	233	HTTP/1.1 200 OK  (JPEG JFIF image)
+
+
+===== QUESTIONS =====
+
+1. I saw this under one of the frames. How does TCP reassemble packets?
+[34 Reassembled TCP Segments (80335 bytes): #13(1382), #15(1382), #17(2764), #19(2764), #21(2764), #22(2764), #26(1382), #28(1382), #30(2764), #32(2764), #34(2764), #36(2764), #38(2764), #40(2764), #42(2764), #44(2764), #45(2764), #51(1382)]
+
+2. Related to the above question, where can I see large files (e.g. images) being split up into multiple packets in Wireshark?
