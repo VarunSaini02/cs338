@@ -1,0 +1,4 @@
+This is a text file containing some text.
+
+Key: 104f344081ac5fd7df619657fd9eaad4
+IV: a11e94f1ff7f621f10d09abde5fac1c6
