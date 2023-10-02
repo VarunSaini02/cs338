@@ -1,0 +1,307 @@
+Varun Saini
+
+===== Generated RSA Keys =====
+
+    Private Key:
+
+        -----BEGIN RSA PRIVATE KEY-----
+        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
+        -----END RSA PRIVATE KEY-----
+
+    Public Key (added newlines for legibility, as there were none originally):
+
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCavfyKdqcZ/dcG24J/1mx1Ug0rIY5Ingc
+        fAn36YCWBbIW2/3T4hDVjPt5m0KCXuqxuoimE6QKp6h3ZRCSzXjBKT352F7oBTb15+u5/KR
+        ZBqxl37tiplqW119yqc+tHIQpT10Eub1wrtBp7DaJoPZTJ1pqods1nFQQq6nDymW5ssetW8
+        gP+ezwZ9RlB3nz8EFPLJbBCl3xQie4S5/IgPzAqLBjUqU9YsFLxmCCNnxEcJifVKDU5jGpo
+        zV4xWUzbZ92nTBkdczAxtS+jQqGWixcDVffL8Ql1PGuvxNDYu38ZymUmOygmYcwvTpemGQG
+        5tG4pyFItjwRBTAAxGcInlbJ3+c7wD+5uITSCyVSFvhUIso1ql1gTrfxT8P1BgKPMj4n2TT
+        tszPe7/VNd0HTOIJCaAjzJAbinm5fW/4sLeAf0e/U7yVOFbbTlV/MzU69zxxVdT/dyrGezp
+        qFVpRzdk8T8pyMWj09BjIoScF9ZI15W73a8Pm0JbYisxb+zrF2i2NM=
+        varunsaini@Varun-Sainis-MacBook-Pro.local
+
+===== Private Key =====
+
+    What is contained in this file?
+
+        Appendix A.1.2 of RFC 8017 describes RSA Private Key Syntax:
+        (https://datatracker.ietf.org/doc/html/rfc8017#appendix-A.1.2).
+
+        The RFC contains more detail about this, but at a high level, we can
+        expect the following fields to be represented in the private key:
+            - version           Version,
+            - modulus           INTEGER,  -- n
+            - publicExponent    INTEGER,  -- e
+            - privateExponent   INTEGER,  -- d
+            - prime1            INTEGER,  -- p
+            - prime2            INTEGER,  -- q
+            - exponent1         INTEGER,  -- d mod (p-1)
+            - exponent2         INTEGER,  -- d mod (q-1)
+            - coefficient       INTEGER,  -- (inverse of q) mod p
+            - otherPrimeInfos   OtherPrimeInfos OPTIONAL
+
+    Decoding the private key:
+
+        We have a SEQUENCE of 9 integers. To get this decoding, I copied over
+        the Base64 from id_rsa into Michael Holtstrom's ASN.1 decoder, which
+        returned each integer in a hexadecimal format. To actually look at
+        offsets and inspect other metadata, I used Lapo Luchini's ASN.1 decoder.
+        (I did not copy over the PEM header and footer, only the Base64 data.)
+
+        1. version
+
+            0x00
+
+            Offset: 4
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length: 0x01 [1 byte]
+                Value: written above
+
+        2. modulus (n)
+
+            0x009abdfc8a76a719fdd706db827fd66c75520d2b218e489e071f027dfa6025816c
+            85b6ff74f88435633ede66d0a097baac6ea22984e902a9ea1dd94424b35e304a4f7e
+            7617ba014dbd79faee7f291641ab1977eed8a996a5b5d7dcaa73eb47210a53d7412e
+            6f5c2bb41a7b0da2683d94c9d69aa876cd6715042aea70f2996e6cb1eb56f203fe7b
+            3c19f51941de7cfc1053cb25b042977c5089ee12e7f2203f302a2c18d4a94f58b052
+            f198208d9f111c2627d52835398c6a68cd5e31594cdb67dda74c191d733031b52fa3
+            42a1968b170355f7cbf109753c6bafc4d0d8bb7f19ca65263b282661cc2f4e97a619
+            01b9b46e29c8522d8f04414c003119c22795b277f9cef00fee6e213482c95485be15
+            08b28d6a975813adfc53f0fd4180a3cc8f89f64d3b6cccf7bbfd535dd074ce20909a
+            023cc901b8a79b97d6ff8b0b7807f47bf53bc953856db4e557f33353af73c7155d4f
+            f772ac67b3a6a155a51cdd93c4fca723168f4f418c8a12705f59235e56ef76bc3e6d
+            096d88acc5bfb3ac5da2d8d3
+
+            Offset: 7
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x82 [2 bytes]
+                Length: 0x01 0x81 [385 bytes]
+                Value: written above
+
+        3. publicExponent (e)
+
+            0x010001
+
+            Offset: 396
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length: 0x03 [3 bytes]
+                Value: written above
+
+        4. privateExponent (d)
+
+            0x2f6a0164a7e0a1cd2ec2d225d567ed49b17f8974b9b5347eb818ba632a6cb3907e
+            1449881cd1ddcdf02893565faebe2b31a70c93c615e3dc7192ee1754c28a876a7e34
+            4f26d6596cb2609a0d6a98803c9e0c2aaa46a47b5811b172a51c356a4150d94706a4
+            66989991f79c80e3f1e29249e88fafff5613917858e78cde488093afa9af745bd884
+            dceb45f6f1e65811e4aafd7c599b332336703568cebee4bdac5e60a960cb884056d9
+            e2242f60cb0c5600a486b27054bf1227c331d9cbfbfa81ed51b81d7e80d6720ba0e2
+            489832f091ab4bf886b05184f98698c395a333e578a28a0e29eee779a8e3f02c5e4d
+            12e27a1ce397110b27c962eeacc33b86dabe2c978a64568ab522a4b0f337114cd378
+            ee42300065729054bb2179240a6f8e3bf4b11eaea26503c869d76abdaf8e8a6aeae1
+            6d61aa12ad56880e6672b5705fd63e417be6d8476d2c5aa61aeee68148269d71c4ba
+            c1dafd703fa1d47d1c207661cba81f49db926eca4c45a9d40158b6578dd0111ba692
+            57692fc25d3e76848917f9
+
+            Offset: 401
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x82 [2 bytes]
+                Length: 0x01 0x80 [384 bytes]
+                Value: written above
+
+        5. prime1 (p)
+
+            0x00ca129f3ca17b82896b58c0a3866efbc4ba4ac772b3a490262ac6cad007d16774
+            d89e207c0f870e9771b23292ca9336f45862e864e454244cb8fb73765c55cc1b2d53
+            fee019a5e39dabd2279d4f45613579a5b0ee80021376a2a5bd326a691893eebeca1e
+            1c8d2c88341b6b41b3903bf9d1bc257b38c904dcc1decd07361b35d3f4ac3496f598
+            dd15004eefc905ef9be4a1ef68718f7c3c920f8b1c9fd677773bb8a813e63aa97098
+            8b23d4ce29ce2b5cd287420c88eeecb636da9023def92047
+
+            Offset: 789
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x81 [1 byte]
+                Length: 0xC1 [193 bytes]
+                Value: written above
+
+        6. prime2 (q)
+
+            0x00c409caa971f2d54d8604234ddfd32d0bd887459a8fe4e017d5b6150be444bb0f
+            5e79caa35b1419dfbe4961bf3bb63f191dedab193203986e3370d425f4a722c28f53
+            96e75b2ab79e6adc4d37eedbd1bd77bd10aae3228acd166607d94012a8b4c507d934
+            a2cc79a3184a941596a19948df19cf2b85d49aaa3e2891803233d8e76a82b371f132
+            9c2de24f9d55e837972fdc33b744dc6c0acb78271307a22cdc4e2f3e302c8671fb72
+            7408f0d8a77e3e1b62a16046fad400faa171a40a2f17b515
+
+            Offset: 985
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x81 [1 byte]
+                Length: 0xC1 [193 bytes]
+                Value: written above
+
+        7. exponent1 (d mod (p-1))
+
+            0x56b73f1669c5f2f2bdda4c70e053e83f3822b70c8602ecc9343a32f6ab2435dd72
+            c808f0b44924fde090b41b424b829dc10050f25af9b0ca2be7dc58c2af1ef3dab3dd
+            00968115f8a7af7bc88a281fdb2ee4e7d4b1a232700ac44d38c169705eab69bc9ac7
+            6dddda65620ed91711a26b4692131399fec9d3626f16552de6e76699ecfc747bd8a9
+            a745869a680de0116a4003d932427cf2114c124aaa5d02cf6c15862b63f570991d1d
+            38b72df1cac3d9058f7dcc9b46ccd6351bfe1726ac8a29
+
+            Offset: 1181
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x81 [1 byte]
+                Length: 0xC0 [192 bytes]
+                Value: written above
+
+        8. exponent2 (d mod (q-1))
+
+            0x00bdd34d6eae6c19a7abb1ae0de64232485a2f02731c0ae003b469500fe7c5b5ec
+            b7eaef11274c5b91904cb65dda902aa1439db423fd8e05b8100f9d1df3bd33a779e9
+            d321cbe19d53c4ddf5d7c76f0bb58f907fe73971653e1a064a6b4fe3c180e99923f6
+            17fe2f7a82371515a27a705763d1360e4ad507bef9d986aabff1fc82795c7e2e4304
+            62befb79643c9f53d50dff0804daa525e97e04a6b1829ec319c08b76886754f86226
+            fdbcfa9a8ff56a665227397701c2efffc0fcad7f3f0291d1
+
+            Offset: 1376
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x81 [1 byte]
+                Length: 0xC1 [193 bytes]
+                Value: written above
+
+        9. coefficient ((inverse of q) mod p)
+
+            0x00ad3fab80b89af6889bdf8e1f856b4b38ebcb0b0c20bdec0359e9a7923a463112
+            68ae112afea4c68e7f7bab0d5da6016eaa55fe3a4a8ad17d34ec6ea5f2525f1ca6f8
+            07b08a4f400d9e24559cf8a619e540ae9472a13e3693fabbbf80a870c907cfadb71e
+            eabdc92b45d7fa96dda5247e688d9af5dcd0a5edf72c612c69dc5b73ed1a132d21f5
+            ee952abb50df02fd13f6349f54b4277d18dbc6f16249a99e46c3f35a70b7daa3ffac
+            f9d8d6635ab9a342f4fc53e0bb2fc61fdbcc58ea4e03156d
+
+            Offset: 1572
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x81 [1 byte]
+                Length: 0xC1 [193 bytes]
+                Value: written above
+
+===== Public Key =====
+
+    We can use the following command to convert the OpenSSH key in id_rsa.pub
+    into a PEM format using PKCS #8 (from Leonardo Giordano's blog post):
+
+        > ssh-keygen -e -f id_rsa.pub -m PKCS8
+
+    This gives us the following output:
+
+        -----BEGIN PUBLIC KEY-----
+        MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAmr38inanGf3XBtuCf9Zs
+        dVINKyGOSJ4HHwJ9+mAlgWyFtv90+IQ1Yz7eZtCgl7qsbqIphOkCqeod2UQks14w
+        Sk9+dhe6AU29efrufykWQasZd+7YqZaltdfcqnPrRyEKU9dBLm9cK7Qaew2iaD2U
+        ydaaqHbNZxUEKupw8plubLHrVvID/ns8GfUZQd58/BBTyyWwQpd8UInuEufyID8w
+        KiwY1KlPWLBS8ZggjZ8RHCYn1Sg1OYxqaM1eMVlM22fdp0wZHXMwMbUvo0KhlosX
+        A1X3y/EJdTxrr8TQ2Lt/GcplJjsoJmHML06XphkBubRuKchSLY8EQUwAMRnCJ5Wy
+        d/nO8A/ubiE0gslUhb4VCLKNapdYE638U/D9QYCjzI+J9k07bMz3u/1TXdB0ziCQ
+        mgI8yQG4p5uX1v+LC3gH9Hv1O8lThW205VfzM1Ovc8cVXU/3cqxns6ahVaUc3ZPE
+        /KcjFo9PQYyKEnBfWSNeVu92vD5tCW2IrMW/s6xdotjTAgMBAAE=
+        -----END PUBLIC KEY-----
+
+    What is contained in this file?
+
+        Appendix A.1.1 of RFC 8017 describes RSA Private Key Syntax:
+        (https://datatracker.ietf.org/doc/html/rfc8017#appendix-A.1.2).
+
+        The RFC contains more detail about this, but at a high level, we can
+        expect the following fields to be represented in the private key:
+            - modulus           INTEGER,  -- n
+            - publicExponent    INTEGER   -- e
+
+    Decoding the public key:
+
+        This time, we have a SEQUENCE of 2 integers. I performed the same steps
+        as before using Michael Holtstrom's ASN.1 decoder and Lapo Luchini's
+        ASN.1 decoder. (I did not copy over the PEM header and footer, only the
+        Base64 data.) These two INTEGERS also appear in the private key.
+
+        1. modulus (n)
+
+            0x009abdfc8a76a719fdd706db827fd66c75520d2b218e489e071f027dfa6025816c
+            85b6ff74f88435633ede66d0a097baac6ea22984e902a9ea1dd94424b35e304a4f7e
+            7617ba014dbd79faee7f291641ab1977eed8a996a5b5d7dcaa73eb47210a53d7412e
+            6f5c2bb41a7b0da2683d94c9d69aa876cd6715042aea70f2996e6cb1eb56f203fe7b
+            3c19f51941de7cfc1053cb25b042977c5089ee12e7f2203f302a2c18d4a94f58b052
+            f198208d9f111c2627d52835398c6a68cd5e31594cdb67dda74c191d733031b52fa3
+            42a1968b170355f7cbf109753c6bafc4d0d8bb7f19ca65263b282661cc2f4e97a619
+            01b9b46e29c8522d8f04414c003119c22795b277f9cef00fee6e213482c95485be15
+            08b28d6a975813adfc53f0fd4180a3cc8f89f64d3b6cccf7bbfd535dd074ce20909a
+            023cc901b8a79b97d6ff8b0b7807f47bf53bc953856db4e557f33353af73c7155d4f
+            f772ac67b3a6a155a51cdd93c4fca723168f4f418c8a12705f59235e56ef76bc3e6d
+            096d88acc5bfb3ac5da2d8d3
+
+            Offset: 28
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length of length: 0x82 [2 bytes]
+                Length: 0x01 0x81 [385 bytes]
+                Value: written above
+
+        2. publicExponent (e)
+
+            0x010001
+
+            Offset: 417
+            DER encoding:
+                Type: 0x02 [INTEGER]
+                Length: 0x03 [3 bytes]
+                Value: written above
+
+===== Sanity Check =====
+
+    Below are facts that I verified in ssh/sanity-check.py:
+
+        - p * q == n
+        - (e * d) == 1 (mod (p - 1)(q - 1))
+        - q * coefficient = 1 (mod p)
