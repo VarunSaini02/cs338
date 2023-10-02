@@ -304,4 +304,6 @@ Varun Saini
 
         - p * q == n
         - (e * d) == 1 (mod (p - 1)(q - 1))
+        - exponent1 == d (mod (p - 1))
+        - exponent2 == d (mod (q - 1))
         - q * coefficient = 1 (mod p)

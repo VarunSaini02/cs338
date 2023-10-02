@@ -10,5 +10,8 @@ q_inverse = 0x00ad3fab80b89af6889bdf8e1f856b4b38ebcb0b0c20bdec0359e9a7923a463112
 assert(p * q == n)
 assert((e * d) % ((p - 1) * (q - 1)) == 1)
 assert((q * q_inverse) % p == 1)
+assert(e1 == d % (p - 1))
+assert(e2 == d % (q - 1))
+assert((q * q_inverse) % p == 1)
 
 print("Success!")
