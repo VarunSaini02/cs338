@@ -1,0 +1,151 @@
+Varun Saini
+
+===== QUESTION 1 =====
+
+Alice wants to send Bob a long message, and she doesn't want Eve to be able to read it. Assume for this scenario that AITM is impossible.
+
+    To encrypt a long message, we want to use a symmetric encryption technique over an asymmetric one to reduce the time needed to encrypt.
+
+        a. Alice and Bob use Diffie–Hellman to agree on a shared secret key K
+        b. Alice uses AES to encrypt the message M, sending AES(K, M) to Bob
+        c. Bob decrypts AES(K, M), getting AES_D(K, AES(K, M)) = M
+
+    We have assumed that an AITM attack is impossible, so Eve can't decrypt this since she doesn't have the secret key K.
+
+===== QUESTION 2 =====
+
+Alice wants to send Bob a long message. She doesn't want Mal to be able to modify the message without Bob detecting the change.
+
+    In this case, we're okay with Mal seeing the message, as long as she doesn't modify it before it reaches Bob.
+    Because of this, we aren't going to worry about encrypting the message itself.
+
+        a. Alice sends two items to Bob (using some agreed-upon format like ASN.1)
+
+            i. The message M itself
+            ii. An (S_A)-encrypted hash of the message (a digital signature): Sig = E(S_A, H(M))
+
+        b. Bob then receives a message M' and a signature Sig
+
+            i. Bob can decrypt the signature using Alice's public key: E(P_A, Sig) = E(P_A, E(S_A, H(M))) = H(M)
+            ii. Bob can then hash the message M' and ensure that H(M') = H(M)
+
+    If Bob concludes that H(M') = H(M), then he can be fairly certain that M' = M, as cryptographic hash functinos are collision-resistant.
+
+    Although Mal could modify the message M' that Bob receives, she can't fake Alice's digital signature since only Alice holds S_A.
+    Thus, even if Mal did modify the message, Bob would realize that the digital signature he received didn't match the message itself.
+
+===== QUESTION 3 =====
+
+Alice wants to send Bob a long message (in this case, it's a signed contract between AliceCom and BobCom), she doesn't want Eve to be able to read it,
+and she wants Bob to have confidence that it was Alice who sent the message. Assume for this scenario that AITM is impossible.
+
+    This is basically combining questions 1 and 2.
+    We still want to use a digital signature to verify authenticity of the message, but we also want to protect the message from being seen by Eve.
+
+        a. Alice and Bob use Diffie–Hellman to agree on a shared secret key K
+
+        b. Alice sends two items to Bob (using some agreed-upon format like ASN.1)
+
+            i. The message M, encrypted using AES: C = AES(K, M)
+            ii. An (S_A)-encrypted hash of the message (a digital signature): Sig = E(S_A, H(M))
+
+        c. Bob then receives ciphertext C and a signature Sig
+
+            i. Bob can decrypt the signature using Alice's public key: E(P_A, Sig) = E(P_A, E(S_A, H(M))) = H(M)
+            ii. Bob can then decrypt C to obtain M' = AES_D(K, C) = AES_D(K, (AES(K, M)))
+            iii. Finally, Bob can verify the authenticity of the message by hashing M' and ensuring that H(M') = H(M)
+
+    In question 2, we used a digital signature to primarily verify the integrity of the message M.
+    Here, the digital signature is serving a different primary purpose: it verifies the authenticity of M (although, it does also ensure integrity).
+
+    Since only Alice could have generated the digital signature (using S_A), Bob knows that Alice sent the message.
+    We also assumed that an AITM attack is impossible, so Eve can't decrypt the message since she doesn't have the secret key K.
+
+===== QUESTION 4 =====
+
+Consider scenario #3 above. Suppose Bob sues Alice for breach of contract and presents as evidence: the digitally signed contract (C || Sig)
+and Alice's public key P_A. Suppose Alice says in court "C is not the contract I sent to Bob". (This is known as repudiation in cryptographic
+vocabulary.) Alice will now need to explain to the court what she believes happened that enabled Bob to end up with an erroneous contract. List
+at least three things Alice could claim happened. For each of Alice's claims, state briefly how plausible you would find the claim if you were
+the judge. (Assume that you, the judge, studied cryptography in college.)
+
+    Things that Alice might claim:
+
+    1. "Bob got my secret key! He used it to forge a signature for this contract."
+        - Bob "guessing" Alice's secret key is nearly impossible (using contemporary, non-quantum technology)
+        - However, it is possible that Alice accidentally shared her secret key, and Bob took advantage of this. This is still not probable, but it is more likely than Bob brute-forcing Alice's secret key.
+
+    2. "Bob got one of my valid signatures from another document that I signed. He then carefully crafted this contract to have the same hash as that document, making the same digital signature valid for both."
+        - Hash functions are preimage- and collision-resistant...
+        - While this scenario is not impossible, it is highly improbable that Bob was not only able to produce a hash collision but was also able to make the colliding input "look like" a valid contract.
+        - It is possible that SHA-256 has some vulnerability that Bob managed to find, which might have allowed Bob to produce a collision, but it would be hard to prove Bob's guilt in this case.
+
+    3. "This is a valid contract that I signed, but I never sent it to Bob."
+        - For Bob to make a strong case, this would require the contract itself to only contain information about Alice (no specifics about the second party involved in the contract).
+        - If Alice sent the signed contract to, say, Carl, then Carl could have sent it to Bob.
+        - It would still be a valid, signed contract that Bob could view using Alice's public key, so Bob could claim that it was meant for him.
+        - The contract lacking information about the second party makes this less believable, but if it were true, then this situation is somewhat plausible.
+
+    4. "That's not even my public key!"
+        - Perhaps Bob was communicating with Mal all along...
+        - However, for this to be true, either the certificate authority (responsible for verifying that P_A belongs to Alice) is in on the attack, or Mal managed to fool them.
+        - If Mal did manage to gain control of an AliceCom domain, it could be possible for her to fool the relevant certificate authority.
+        - This scenario is plausible if we assume that it happened as part of a more sophisticated attack (by Mal).
+
+===== QUESTION 5 =====
+
+For this scenario, suppose the assumption that everybody has everybody else's correct public keys is no longer true.
+Instead, suppose we now have a certificate authority CA, and that everybody has the correct P_CA (i.e. the certificate authority's key).
+Suppose further that Bob sent his public key P_B to CA, and that CA then delivered to Bob this certificate: Cert_B = "bob.com" || P_B || Sig_CA
+In terms of P_CA, S_CA, H, E, etc., of what would Sig_CA consist? That is, show the formula CA would use to compute Sig_CA.
+
+    Formula:
+        - Sig_CA = E(S_CA, H("bob.com" || P_B))
+
+    Anyone who receives Cert_B can see that the certificate claims that "bob.com" is associated with P_B.
+
+    To verify this, a receiver of Cert_B can...
+        - Calculate the hash:
+            - H("bob.com" || P_B)
+        - Decrypt the digital signature Sig_CA:
+            - E(P_CA, Sig_CA) = E(P_CA, E(S_CA, H("bob.com" || P_B))) = H("bob.com || P_B)
+        - Ensure that the two results are equal
+
+    If the two results are not equal, then the certificate authority did not sign the contents of the certificate that was received.
+    However, if they are equal, then this means that someone with the certificate authority's secret key S_CA signed the certificate, so it is most likely valid.
+
+===== QUESTION 6 =====
+
+Bob now has the certificate Cert_B from the previous question. During a communication, Bob sends Alice Cert_B.
+Is that enough for Alice to believe she's talking to Bob? (Hint: no.)
+What could Alice and Bob do to convince Alice that Bob has the S_B that goes with the P_B in Cert_B?
+
+    Bob sending Alice Cert_B is not enough for Alice to believe she's talking to Bob.
+    If it was, then what's stopping Alice from sending the certificate to someone else and using it to claim that *she* is Bob?
+
+    For Alice to convince herself that Bob has the S_B that corresponds to the P_B in Cert_B, she can send him a challenge:
+        - Alice picks a random number R and encrypts it using Bob's public key: E(P_B, R)
+        - Alice sends Bob this encrypted number and asks him to send back the decrypted random number
+        - Bob receives E(P_B, R) and uses his secret key to decrypt it: E(S_B, E(P_B, R)) = R
+        - Bob sends back R, and everyone's happy
+
+    Of course, all of this still works with an AITM. Although Alice knows that she's talking to Bob, she can't be sure that there's no one in between.
+    This could be prevented by doing Diffie–Hellman and challenging Bob to verify that he has the same (symmetric) key.
+    (With an AITM, Alice would have a secret K_1, and Bob would have a distinct secret K_2, so the two could check for this.)
+
+===== QUESTION 7 =====
+
+Finally, list at least two ways this certificate-based trust system could be subverted, allowing Mal to convince Alice that Mal is Bob.
+
+    1. The certificate authority could be corrupt/negligent by signing certificates without doing the appropriate due diligence.
+    2. Mal could have successfully fooled the certificate authority if she managed to get access to Bob's phone, domain, etc.
+    3. If Mal was able to hack into Alice's browser, she might be able to add a new trusted certificate authority that could sign a forged certificate.
+
+    All three of the techniques above allow Mal to construct a certificate of the form:
+        - Cert_B = "bob.com" || P_M || Sig_CA
+
+    In other words, if Alice received this certificate, she would believe that "bob.com" (Bob) had the public key P_M, which is actually Mal's public key.
+    Then, any encrypted communications from Alice to Bob could be intercepted by Mal and decrypted using Mal's secret key S_M.
+
+    In cases 1 and 2, Sig_CA comes from a real, trusted certificate authority that either hasn't done its due diligence or was successfully fooled by Mal.
+    In case 3, Sig_CA comes from a fake certificate authority that Mal is able to trick Alice's browser into trusting.
