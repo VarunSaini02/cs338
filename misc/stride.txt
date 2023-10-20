@@ -1,0 +1,126 @@
+Varun Saini
+
+My data flow diagram is located at misc/data-flow-diagram.jpeg.
+
+===== THREATS =====
+
+1. Spoofing
+
+    i:
+        Scenario:
+        - Mal manages to get ahold of my authentication information (i.e. username/password).
+        One way that this could happen is if she were eavesdropping when I logged in through
+        the HTTP-based client apps for iOS or Android. She could easily see my credentials
+        since HTTP is not secure. She could then log in (as me) using my credentials.
+
+        Mitigation:
+        - Detect Mal's new IP address and require additional verification to log in.
+        - Use two-factor authentication or API keys for the tapir-related data API.
+        - Use HTTPS (port 443 on web server) to encrypt sensitive information like login credentials.
+
+2. Tampering
+
+    i:
+        Scenario:
+        - Mal finds the static IP and port (5432) on which the database server is running.
+        She could then send requests to the database that modify or delete data.
+
+        Mitigation:
+        - Require authentication and authorization to communicate with the database server.
+        - Ensure that authentication credentials are encrypted when shared (to avoid spoofing), e.g. using HTTPS.
+        - Have backups of data stored in a separate location to easily repair damage.
+        - Periodically change authentication credentials.
+
+3. Repudiation
+
+    i.
+        Scenario:
+        - Mal performs an attack on the database server from a public library.
+        Then, this is virtually untraceable to her, as she can simply claim that it wasn't her.
+
+        Mitigation:
+        - Keep logs of attempted logins and IP addresses to make it easier to track malicious actors.
+        In this case, it could at least be traced to the library, which could potentially lead to Mal.
+
+    ii.
+        Scenario:
+        - Mal realizes that users can like and dislike posts even if they're not logged in.
+        She decides to write a script that mass-dislikes all of the posts of her ex-boyfriend, Matt.
+        This causes Matt to automatically get banned from the platform.
+
+        Mitigation:
+        - Force users to log in to do anything (like liking posts).
+        - Use IP address tracking to detect suspicious behavior like this.
+
+4. Information Disclosure
+
+    i:
+        Scenario:
+        - Mal finds the static IP and port (5432) on which the database server is running.
+        She could then send requests to the database to read data that she shouldn't be
+        allowed to see.
+
+        Mitigation:
+        - Require authentication and authorization to communicate with the database server.
+        - Ensure that authentication credentials are encrypted when shared (to avoid spoofing), e.g. using HTTPS.
+        - Have the database server encrypt results so that only the web server can decrypt and read them.
+
+    ii.
+        Scenario:
+        - Mal is banned from the platform for hate speech. 
+        She makes a new account and is able to interact with the platform again.
+
+        Mitigation:
+        - Use IP address tracking to prevent this.
+        - Have limited permissions for newer accounts.
+
+    iii.
+        Scenario:
+        - Mal realizes that users can always see posts from public accounts.
+        She uses this to view posts from an account that had previously banned her.
+
+        Mitigation:
+        - Force users to log in to do anything (like viewing posts).
+        - Use IP address tracking to enforce bans.
+
+    iv.
+        Scenario:
+        - Eve eavesdrops and reads tapir-related chat messages between Alice and Bob.
+
+        Mitigation:
+        - Encrypt tapir-related chat messages using HTTPS.
+
+5. Denial of Service
+
+    i.
+        Scenario:
+        - Mal sends billions of requests to the web server through the web client.
+        If the web server somehow doesn't crash or slow to a crawl, the database server
+        might, as it will be inundated with requests forwarded from the web server.
+
+        Mitigation:
+        - Use a proxy server that only directs "nonsuspicious" traffic to the web server.
+        - Pay for DDoS protection to prevent Mal's requests from taking down the web server.
+
+6. Elevation of Privilege
+
+    i.
+        Scenario:
+        - Mal is able to find a vulnerability in the database server, allowing her to
+        add herself as a trusted user.
+
+        Mitigation:
+        - Keep the user permissions database separate from the data itself.
+        - Have a separate location (perhaps a physical drive) containing the source of
+        truth for authorization permissions. For example, you could update authorization
+        permissions to match the "source of truth" on an hourly basis.
+
+7. Other
+
+    i. SQL Injection
+        Scenario:
+        - Mal performs an SQL injection to query prohibited data (such as user credentials).
+
+        Mitigation:
+        - Use injected parameters rather than allowing users to input entire SQL strings.
+        - Perform input validation before forwarding queries to the database server.
