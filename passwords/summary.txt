@@ -1,0 +1,106 @@
+Varun Saini
+
+===== Part 1 =====
+
+Total time: 0.33 seconds
+Number of hashes computed: 267516 hashes
+Passwords cracked: 2734 passwords
+Time per hash computed: 1.23e-6 seconds per hash
+Time per password cracked: 1.21e-4 seconds per password
+Passwords cracked per number of hashes computed: 0.01 passwords per hash
+
+===== Part 2 =====
+
+Total time: 1175.68 seconds (19.59 minutes)
+Number of hashes computed: 1190981232 hashes
+Passwords cracked: 50 passwords
+Time per hash computed: 9.87e-7 seconds per hash
+Time per password cracked: 23.51 seconds per password
+Passwords cracked per number of hashes computed: 4.20e-8 passwords per hash
+
+===== Part 3 =====
+
+Total time: 718.33 seconds (11.97 minutes)
+Number of hashes computed: 731388744 hashes
+Passwords cracked: 2734 passwords
+Time per hash computed: 9.82e-7 seconds per hash
+Time per password cracked: 0.26 seconds per password
+Passwords cracked per number of hashes computed: 3.74e-6 passwords per hash
+
+===== Analysis =====
+- Did your time per hash computed change between phases? By what factor? Why?
+
+    The time per hash computed did not change substantially between phases.
+    1.23e-6, 9.87e-7, and 9.82e-7 are all extremely close to one another.
+    
+    The time needed to compute a hash should be proportionate to the size of the
+    input to the hash function, and our inputs were all relatively small.
+
+    The relatively quick runtime of the first phase could explain the greater
+    deviation in this phase's time per hash computed.
+
+- Did your time per password crack change between phases? By what factor? Why?
+
+    Yes, the time per password crack was approximately 200,000x longer in phase 2
+    than in phase 1. This makes sense, as phase 1 only considered one word for a
+    password, whereas phase 2's passwords were two concatenated words. In other
+    words, if N was the number of words, phase 1 was executed in O(N) time, but
+    phase 2 required O(N^2) time. This matches what we saw empirically: N was
+    approximately equal to 200,000.
+
+    Similarly, the time per password crack was approximately 2000x longer in
+    phase 3 than in phase 1. This also makes sense. Phase 3 was almost identical
+    to phase 1. The only difference was that phase 3 required checking M salts
+    for each word, whereas phase 1 only required a single check per word. In other
+    words, phase 1 required O(N) time, but phase 3 required O(N*M) time. This also
+    matches what we observed empirically, as M was approximately equal to 2000.
+
+- Suppose you wanted to precompute all the hashes for each possible password
+so you could just look up the password in a table indexed by the hash. How much
+memory would be required for each phase?
+
+    For this, we assume:
+        - Each hash string is 32 bytes long,
+        - Each password is 16 bytes long.
+        - Each mapping of a hash to a password takes up an additional 32 bytes
+        of overhead beyond the space required to store the hash and the password.
+
+    Phase 1:
+        - For this phase, we just need to store each password with its corresponding hash string.
+        - There were 267516 possible words (passwords).
+        - We would need 267516 * (32 + 16 + 32) = 21401280 bytes.
+
+    Phase 2:
+        - For this phase, I'm going to continue to assume that passwords are 16 bytes long,
+        even though this phase involved concatenating words to make passwords (simplifying assumption).
+        - There were 267516 possible words, so 267516^2 = 71564810256 possible passwords.
+        - We would need 71564810256 * (32 + 16 + 32) = 5.73e12 bytes.
+        - If we want passwords to be 32 bytes instead, (since they are "twice the size" as in phase 1),
+        we would need 71564810256 * (32 + 32 + 32) = 6.87e12 bytes.
+
+    Phase 3:
+        - This phase is nearly identical to phase 1, but for each possible password,
+        there are multiple salts that need to be considered when generating a hash.
+        - Specifically, there were 2734 possible salts.
+        - Multiplying the result for phase 1 by 2734 gives us 58511099520 bytes.
+        - However, we only know there were 2734 possible salts because we were
+        given a nice file containing these salts.
+        - Instead, if a salt could be any 8-digit hexadecimal number, we would
+        have to store 16^8 different possible hashes for each word.
+        - Multiplying the result from phase 1 by 16^8 gives us 9.19e16 bytes.
+
+- Give 3-4 reasons we should store password hashes and not the passwords themselves.
+Think in terms of threats, who the attackers might be, etc.
+
+    1. If an external attacker were to gain access to a secret password database, storing
+    password hashes prevents them from being able to see the passwords unless they
+    perform some time-intensive brute-force work (similar to this assignment).
+
+    2. Storing password hashes rather than passwords themselves also protects
+    users from internal threats: employees abusing their power to view files
+    containing users' passwords.
+
+    3. If an organization that stores passwords wants to transfer them across a
+    network, using password hashes can prevent any issues that might arise from
+    AITM attacks. Even if an AITM manages to read a secret file that is transferred
+    over a network, they can't do anything with the information if password hashes are used.
